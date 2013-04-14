@@ -1,0 +1,15 @@
+<h2>Current Bookings</h2>
+<table border="1">
+  <tr>
+    <th><%= sortable "booking_id" %></th>
+    <th><%= sortable "booking_date" %></th>
+    <th><%= sortable "consignee" %></th>
+  </tr>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= link_to booking[:booking_id], booking_path(booking[:booking_id]) %></td>
+      <td><%= booking[:booking_date] %></td>
+      <td><%= booking[:consignee] %></td>
+    </tr>
+  <%end%>
+</table>

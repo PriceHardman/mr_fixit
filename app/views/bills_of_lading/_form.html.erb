@@ -1,0 +1,17 @@
+<%= form_for @bill_of_lading do |f| %>
+    <h3>Select the Type and Enter the Document Number of the Bill of Lading You Wish to Create:</h3>
+    <p>
+      <% ['carrier','rail'].each do |mode| %>
+        <b><%= f.label :type, mode.capitalize! %></b>
+        <%= f.radio_button :type, mode %>
+        <br>
+      <% end %>
+    </p>
+    <p>
+      <%= f.label :bl_number, "Document Number:" %>
+      <%= f.text_field :bl_number %>
+    </p>
+    <p>
+      <%= f.submit "Create and Download Bill of Lading as Excel File" %>
+    </p>
+<% end %>
